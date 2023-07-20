@@ -21,7 +21,7 @@ $SecurePassword = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Fo
 $Credential = New-Object System.Management.Automation.PSCredential ($AdminUsername, $SecurePassword)
 
 # Change the DNS settings
-Set-DNSClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses $DNSIPAddress
+Set-DNSClientServerAddress -InterfaceAlias "Ethernet 2" -ServerAddresses $DNSIPAddress
 
 # Join the domain
 Add-Computer -DomainName $DomainName -Credential $Credential -Restart -Force
