@@ -32,3 +32,6 @@ Install-ADDSForest `
 -SysvolPath "C:\Windows\SYSVOL" `
 -Force:$true `
 -SafeModeAdministratorPassword $SafeModePasswordSecureString
+
+# Add RSAT features
+Add-WindowsFeature RSAT-ADDS
