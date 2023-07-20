@@ -35,3 +35,6 @@ Install-ADDSForest `
 
 # Add RSAT features
 Add-WindowsFeature RSAT-ADDS
+
+# Add RSAT-DNS-Server feature
+Add-WindowsFeature RSAT-DNS-Server
