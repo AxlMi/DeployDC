@@ -3,8 +3,13 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$DomainName,
     [Parameter(Mandatory=$true)]
-    [string]$NetbiosName
+    [string]$NetbiosName,
+    [Parameter(Mandatory=$true)]
+    [string]$SafeModePassword
 )
+
+# Convert Safe Mode password to Secure String
+$SafeModePasswordSecureString = ConvertTo-SecureString -String $SafeModePassword -AsPlainText -Force
 
 # Import ServerManager
 Import-Module ServerManager
@@ -25,4 +30,5 @@ Install-ADDSForest `
 -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
 -SysvolPath "C:\Windows\SYSVOL" `
--Force:$true
+-Force:$true `
+-SafeModeAdministratorPassword $SafeModePasswordSecureString
