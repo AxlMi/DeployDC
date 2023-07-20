@@ -9,6 +9,10 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$DNSIPAddress
 )
+Write-Output "DomainName: $DomainName"
+Write-Output "AdminUsername: $AdminUsername"
+Write-Output "AdminPassword: $AdminPassword"
+Write-Output "DNSIPAddress: $DNSIPAddress"
 
 # Convert password to SecureString
 $SecurePassword = ConvertTo-SecureString -String $AdminPassword -AsPlainText -Force
